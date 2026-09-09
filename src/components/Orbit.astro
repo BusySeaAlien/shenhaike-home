@@ -1,0 +1,47 @@
+---
+const orbits = [
+  { rx: 48, ry: 27, opacity: .46 },
+  { rx: 84, ry: 49, opacity: .62 },
+  { rx: 122, ry: 73, opacity: .78 },
+  { rx: 162, ry: 99, opacity: .64 },
+  { rx: 205, ry: 128, opacity: .42 },
+];
+const planets = [
+  { radius: 2.8, color: "#7f98aa", duration: "28s", begin: "-4s", x: 285, y: 186 },
+  { radius: 3.5, color: "#9aa8b5", duration: "47s", begin: "-17s", x: 201, y: 202 },
+  { radius: 4.6, color: "#6f8798", duration: "71s", begin: "-29s", x: 153, y: 205 },
+  { radius: 3.1, color: "#a89aa1", duration: "108s", begin: "-41s", x: 137, y: 233 },
+];
+---
+<svg class="solar" viewBox="0 0 500 330" aria-hidden="true" focusable="false">
+  {orbits.map(orbit => <ellipse cx="255" cy="165" rx={orbit.rx} ry={orbit.ry}
+    fill="none" stroke="#c8d6df" stroke-width="1" opacity={orbit.opacity} />)}
+  <circle cx="255" cy="165" r="5.8" fill="#667f91" opacity=".92" />
+  <g class="moving-planets">
+    {planets.map((planet, i) => {
+      const { rx, ry } = orbits[i];
+      return <circle r={planet.radius} fill={planet.color} opacity=".9">
+        <animateMotion dur={planet.duration} repeatCount="indefinite" begin={planet.begin}
+          path={`M${255 + rx} 165 A${rx} ${ry} 0 1 1 ${255 - rx} 165 A${rx} ${ry} 0 1 1 ${255 + rx} 165`} />
+      </circle>;
+    })}
+  </g>
+  <g class="still-planets">
+    {planets.map(planet => <circle cx={planet.x} cy={planet.y} r={planet.radius} fill={planet.color} opacity=".9" />)}
+  </g>
+</svg>
+
+<style>
+  .solar { position: absolute; right: -34px; top: 38px; width: 470px; max-width: 47vw; opacity: .75; transform: rotate(-18deg); pointer-events: none; }
+  .still-planets { display: none; }
+  @media (max-width: 800px) {
+    .solar { right: -150px; max-width: none; width: 430px; opacity: .48; }
+  }
+  @media (max-width: 600px) {
+    .solar { width: 330px; right: -190px; top: 10px; opacity: .3; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .moving-planets { display: none; }
+    .still-planets { display: inline; }
+  }
+</style>
