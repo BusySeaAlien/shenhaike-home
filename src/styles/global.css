@@ -1,0 +1,71 @@
+:root {
+  color-scheme: light;
+  --paper: #f5f7f8;
+  --ink: #203b50;
+  --muted: #526575;
+  --line: #cdd7de;
+  --wash: #eaf0f3;
+  --serif: "Songti SC", "STSong", "SimSun", serif;
+  --sans: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; text-underline-offset: .3em; }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; border-radius: 2px; }
+.skip-link { position: absolute; top: 12px; left: 12px; padding: 12px; background: var(--paper); transform: translateY(-160%); z-index: 2; }
+.skip-link:focus { transform: none; }
+.page { width: min(100% - 112px, 1080px); margin: 0 auto; min-height: 100svh; display: flex; flex-direction: column; }
+.masthead { display: flex; align-items: center; justify-content: space-between; padding: 36px 0; border-bottom: 1px solid var(--line); }
+.wordmark { font-size: 12px; font-weight: 600; letter-spacing: .22em; }
+.masthead-note { color: var(--muted); font-size: 12px; letter-spacing: .18em; }
+main { flex: 1; }
+.intro { position: relative; padding: 90px 0 84px; overflow: hidden; }
+.intro-copy { position: relative; z-index: 1; }
+h1 { font-family: var(--serif); font-size: clamp(64px, 8vw, 104px); font-weight: 400; letter-spacing: .13em; line-height: 1.25; margin: 0 0 22px; }
+.subtitle { font-family: var(--serif); font-size: 26px; letter-spacing: .08em; margin: 0 0 20px; }
+.description { font-size: 14px; line-height: 1.9; color: var(--muted); margin: 0; }
+.watermark { position: absolute; right: -22px; top: 53px; width: 400px; height: 300px; stroke: #c8d6df; stroke-width: 1; transform: rotate(-18deg); opacity: .65; }
+.stations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.station { padding: 36px 40px 34px 0; }
+.station + .station { padding-left: 44px; padding-right: 0; border-left: 1px solid var(--line); }
+h2 { margin: 0 0 18px; display: flex; align-items: baseline; gap: 14px; font-weight: 400; }
+.station-name { font-family: Georgia, "Times New Roman", serif; font-size: 48px; letter-spacing: -.025em; }
+.station-label { font-family: var(--serif); font-size: 19px; }
+.station p { margin: 0; font-size: 14px; line-height: 1.9; color: var(--muted); }
+.station-bottom { margin-top: 32px; min-height: 40px; display: flex; align-items: center; }
+.enter-link { display: inline-flex; align-items: center; gap: 40px; padding: 10px 0; font-size: 14px; text-decoration: none; border-bottom: 1px solid var(--ink); }
+.enter-link:hover { background: var(--wash); }
+.enter-link span { font-size: 19px; }
+.planned h2 { color: var(--muted); }
+.coming-soon { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-size: 13px; }
+.status-dot { width: 6px; height: 6px; border: 1px solid var(--muted); border-radius: 50%; }
+footer { display: flex; justify-content: space-between; gap: 24px; padding: 34px 0 30px; margin-top: 50px; color: var(--muted); font-size: 12px; }
+footer a { text-decoration: none; padding: 4px 0; }
+footer a:hover { text-decoration: underline; }
+@media (max-width: 800px) {
+  .page { width: calc(100% - 64px); }
+  .intro { padding: 72px 0; }
+  .watermark { right: -130px; opacity: .4; }
+  .station + .station { padding-left: 28px; }
+}
+@media (max-width: 600px) {
+  .page { width: calc(100% - 48px); }
+  .masthead { padding: 26px 0; }
+  .masthead-note { letter-spacing: .04em; }
+  .intro { padding: 58px 0 48px; }
+  h1 { font-size: 64px; letter-spacing: .1em; margin-bottom: 20px; }
+  .subtitle { font-size: 21px; letter-spacing: .04em; }
+  .description { font-size: 13px; max-width: 23em; }
+  .watermark { width: 270px; right: -150px; top: 0; opacity: .25; }
+  .stations { grid-template-columns: 1fr; }
+  .station, .station + .station { padding: 28px 0; border-left: 0; }
+  .station + .station { border-top: 1px solid var(--line); }
+  .station-name { font-size: 40px; }
+  .station-bottom { margin-top: 20px; }
+  footer { margin-top: 24px; padding: 24px 0; }
+}
+
