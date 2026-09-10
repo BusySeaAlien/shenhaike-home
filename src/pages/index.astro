@@ -39,12 +39,16 @@ const canonical = new URL("/", Astro.site);
             <h1 id="name">{site.name}</h1>
             <p class="subtitle">{site.subtitle}</p>
             <p class="description">{site.description}</p>
+            <p class="observer-note"><span aria-hidden="true"></span>A SMALL OBSERVER<br />ON A VAST PLANET.</p>
           </div>
           <Orbit />
         </section>
         <section class="stations" aria-label="站点入口">
-          {stations.map(station => (
+          {stations.map((station, index) => (
             <article class:list={["station", { planned: station.status === "planned" }]}>
+              {station.name === "Ink" && <img class="station-landscape ink-landscape" src="/images/ink-landscape.png" alt="" aria-hidden="true" decoding="async" />}
+              {station.name === "Lens" && <img class="station-landscape lens-landscape" src="/images/lens-water-landscape.png" alt="" aria-hidden="true" decoding="async" />}
+              <p class="station-number"><span aria-hidden="true"></span>0{index + 1}</p>
               <h2><span class="station-name">{station.name}</span><span class="station-label">· {station.label}</span></h2>
               <p>{station.description}</p>
               <div class="station-bottom">
@@ -59,7 +63,7 @@ const canonical = new URL("/", Astro.site);
         </section>
       </main>
       <footer>
-        <span>© {new Date().getFullYear()} {site.name}</span>
+        <span>© 2026 {site.name}<span class="footer-place"> · Somewhere on Earth</span></span>
         <a href={site.github}>GitHub <span aria-hidden="true">↗</span></a>
       </footer>
     </div>

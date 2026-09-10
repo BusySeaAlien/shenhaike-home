@@ -10,6 +10,5 @@ export const site = {
 };
 export const stations: Station[] = [
   { name: "Ink", label: "写作", description: "小说、随笔与个人记录。", status: "live", href: "https://ink.shenhaike.com/", action: "进入 Ink" },
-  { name: "Lens", label: "摄影", description: "记录所见的人与地方。", status: "planned", notice: "筹备中" },
+  { name: "Lens", label: "摄影", description: "记录所见的人与地方。", status: "live", href: "https://lens.shenhaike.com/", action: "进入 Lens" },
 ];
-
