@@ -46,11 +46,12 @@ const canonical = new URL("/", Astro.site);
         <section class="stations" aria-label="站点入口">
           {stations.map((station, index) => (
             <article class:list={["station", { planned: station.status === "planned" }]}>
-              {station.name === "Ink" && <img class="station-landscape ink-landscape" src="/images/ink-landscape.png" alt="" aria-hidden="true" decoding="async" />}
-              {station.name === "Lens" && <img class="station-landscape lens-landscape" src="/images/lens-water-landscape.png" alt="" aria-hidden="true" decoding="async" />}
               <p class="station-number"><span aria-hidden="true"></span>0{index + 1}</p>
               <h2><span class="station-name">{station.name}</span><span class="station-label">· {station.label}</span></h2>
               <p>{station.description}</p>
+              {station.name === "Ink" && <img class="station-landscape ink-landscape" src="/images/ink-landscape.png" alt="" aria-hidden="true" decoding="async" />}
+              {station.name === "Lens" && <img class="station-landscape lens-landscape" src="/images/lens-water-landscape.png" alt="" aria-hidden="true" decoding="async" />}
+              {station.name === "Atlas" && <img class="station-landscape atlas-landscape" src="/images/Codex 图像 2026年9月15日 23_27_25.png" alt="" aria-hidden="true" decoding="async" />}
               <div class="station-bottom">
                 {station.status === "live" ? (
                   <a class="enter-link" href={station.href}>{station.action}<span aria-hidden="true">↗</span></a>
