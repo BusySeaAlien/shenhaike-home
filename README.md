@@ -1,6 +1,6 @@
 # 深海客 Home
 
-独立的 Astro 静态门户，正式站点元数据为 https://shenhaike.com/。当前仅本地开发，不包含部署流程、旧链接跳转或文章接口。
+独立的 Astro 静态门户，正式站点元数据为 https://shenhaike.com/。首页提供三个站点入口：Ink（写作）、Lens（摄影）和 Atlas（个人地理档案）。当前仅本地开发，不包含部署流程、旧链接跳转或文章接口。
 
 ## 本地运行
 
@@ -25,7 +25,12 @@ pnpm preview
 
 ## 编辑内容
 
-src/config.ts 集中保存品牌文案、站点状态与链接。上线站点使用 live 状态和 href/action，筹备站点使用 planned 状态和 notice。首页、样式分别位于 src/pages/index.astro、src/styles/global.css。favicon 复用 Ink 原有素材。
+`src/config.ts` 集中保存品牌文案、站点状态与链接。上线站点使用 `live` 状态和 `href`/`action`，筹备站点使用 `planned` 状态和 `notice`。当前入口链接为：
+
+- Ink：`https://ink.shenhaike.com/`
+- Lens：`https://lens.shenhaike.com/`
+- Atlas：`https://atlas.shenhaike.com/`
+
+首页、样式分别位于 `src/pages/index.astro`、`src/styles/global.css`。三张入口图片位于 `public/images/`；桌面端图片以卡片底边对齐，左侧通过渐隐遮罩融入页面背景。favicon 复用 Ink 原有素材。
 
 固定浅色，使用系统字体，无客户端脚本、RSS、后端或数据库。无 GitHub 仓库创建、推送、Cloudflare 发布操作。
-

@@ -52,13 +52,15 @@ const canonical = new URL("/", Astro.site);
               {station.name === "Ink" && <img class="station-landscape ink-landscape" src="/images/ink-landscape.png" alt="" aria-hidden="true" decoding="async" />}
               {station.name === "Lens" && <img class="station-landscape lens-landscape" src="/images/lens-water-landscape.png" alt="" aria-hidden="true" decoding="async" />}
               {station.name === "Atlas" && <img class="station-landscape atlas-landscape" src="/images/Codex 图像 2026年9月15日 23_27_25.png" alt="" aria-hidden="true" decoding="async" />}
-              <div class="station-bottom">
-                {station.status === "live" ? (
-                  <a class="enter-link" href={station.href}>{station.action}<span aria-hidden="true">↗</span></a>
-                ) : (
+              {station.status === "live" ? (
+                <a class="enter-link" href={station.href}>
+                  <span class="enter-text">{station.action}<span class="enter-arrow" aria-hidden="true">↗</span></span>
+                </a>
+              ) : (
+                <div class="station-bottom">
                   <span class="coming-soon"><span class="status-dot" aria-hidden="true"></span>{station.notice}</span>
-                )}
-              </div>
+                </div>
+              )}
             </article>
           ))}
         </section>
